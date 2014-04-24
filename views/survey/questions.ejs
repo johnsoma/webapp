@@ -1,0 +1,64 @@
+<!-- This program is completely wrong right now -->
+
+<% include header %>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Survey-submit').click(function () {
+                var payload = {
+                    firstname: $('#Survey-firstname').val()
+                };
+        $(document).ready(function () {
+            $('#Survey-submit').click(function () {
+                var payload = {
+                    lastnamename: $('#Survey-lastnamename').val()
+                };
+        $(document).ready(function () {
+            $('#Survey-submit').click(function () {
+                var payload = {
+                    sex: $('#Survey-sex').val()
+                };
+        $(document).ready(function () {
+            $('#Survey-submit').click(function () {
+                var payload = {
+                    transport: $('#Survey-transport').val()
+                };
+
+                $.ajax({
+                    url: "/results.html",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    data: JSON.stringify(payload),
+                    complete: function (data) {
+                        $('#output').html(data.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+
+<p> You will be the only one who can see this content. Don't worry! </p>
+<p> What is your name? </p>
+<form name="input" action="/survey/results.html" method="get">
+First name: <input type="text" name="firstname" value=""><br>
+Last name: <input type="text" name="lastname" value=""><br>
+
+<p> Are you male or female? </p>
+<input type="radio" name="sex" value="male">Male<br>
+<input type="radio" name="sex" value="female">Female<br>
+
+<p> How do you mostly get around? </p>
+<input type="radio" name="transport" value="car">Car<br>
+<input type="radio" name="transport" value="bus">Bus<br>
+<input type="radio" name="transport" value="bike">Bike<br>
+<input type="radio" name="transport" value="other">Other<br>
+<input type="radio" name="transport" value="nothing">Nothing<br>
+
+<p> Submit your answers using the button below</p>
+<input type="submit" value="Submit">
+</form>
+</div>
+
+<% include footer %>

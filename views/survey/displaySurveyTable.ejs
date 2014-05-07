@@ -1,12 +1,11 @@
-<--! Not implemented yet -->
-
 <% include header %>
    <% if(rs.length >0) { %>
       <table>
-        <tr><th>Email</th></tr>
+        <tr><th>Survey</th></tr>
         <% for (var i=0; rs.length > i; i++) { %>
            <tr>
-                <td><a href="/user/?userid=<%= rs[i].UserID %> "> <%= rs[i].Email%></a></td>
+                <td><a href="/results/?firstname=<%= rs[i].firstname %> "> <%= rs[i].la\
+stname%> <%= rs[i].sex%> <%= rs[i].transport%></a></td>
            </tr>
         <% } %>
       </table>

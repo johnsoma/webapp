@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/main',function(req, res) {
+router.get('/main', function(req, res) {
+    db.ResetSurvey(function (err,result) {
+        if(err) throw err;
+});
+
+router.post('/main',function(req, res) {
     res.render('survey/main');
 });
 
@@ -18,7 +23,7 @@ router.get('/results', function(req,res) {
 });
 
 router.post('/results', function (req, res) {
-    db.PostTotal(function (err, result) {
+    db.SurveyTotal(function (err, result) {
             if (err) throw err;
             res.render('survey/results', {rs: result});
         }
@@ -26,3 +31,4 @@ router.post('/results', function (req, res) {
 });
 
 module.exports = router;
+
